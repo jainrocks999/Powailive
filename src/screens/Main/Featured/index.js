@@ -229,8 +229,7 @@ const Featured = () => {
         <View style={{backgroundColor: 'black'}}>
           <View style={styles.FeatureContainer}>
             <Text style={styles.Featurecategory}>Homefood</Text>
-          </View>
-
+          </View> 
           <FlatList
             horizontal={true}
             data={Imgs}

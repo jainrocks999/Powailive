@@ -17,7 +17,6 @@ const Brandconnect = () => {
       {/* <ImageBackground
         source={require('../../../assets/splash_bg.jpg')}
         style={{width: '100%', height: '100%',}}> */}
-
       <View
         style={{
           width: '35%',
@@ -45,15 +44,15 @@ const Brandconnect = () => {
       </View>
       <View
         style={{
-          height:hp(45),
+          height: hp(45),
           width: '90%',
-
+          justifyContent: 'center',
           alignSelf: 'center',
           marginVertical: '20%',
           backgroundColor: '#2b2b2b',
           borderRadius: 30,
         }}>
-        <View
+        {/* <View
           style={{
             flexDirection: 'row',
             marginTop: hp(4),
@@ -63,12 +62,11 @@ const Brandconnect = () => {
           <Image
             style={{tintColor: 'white', height: hp(8), width: wp(20)}}
             source={require('../../../assets/flaticons/food.png')}></Image>
-
           <Image
             style={{tintColor: 'white', height: hp(8), width: wp(25)}}
             source={require('../../../assets/flaticons/three-stars.png')}></Image>
-        </View>
-        <View
+        </View> */}
+        {/* <View
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
@@ -81,8 +79,8 @@ const Brandconnect = () => {
           <Text style={{fontSize: 20, fontWeight: '400', color: 'white'}}>
             Medical Store
           </Text>
-        </View>
-        <View
+        </View> */}
+        {/* <View
           style={{
             flexDirection: 'row',
             marginTop: hp(8),
@@ -99,8 +97,8 @@ const Brandconnect = () => {
           <Image
             style={{height: hp(12), width: wp(25), marginHorizontal: wp(-5)}}
             source={require('../../../assets/default.png')}></Image>
-        </View>
-        <View
+        </View> */}
+        {/* <View
           style={{
             flexDirection:'row',
             justifyContent:'space-between',
@@ -113,6 +111,60 @@ const Brandconnect = () => {
           <Text style={{fontSize: 20, fontWeight: '400', color: 'white'}}>
             Restaurant
           </Text>
+        </View> */}
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            marginHorizontal: '10%',
+            padding: '3%',
+          }}>
+          <View style={{alignItems: 'center'}}>
+            <Image
+              style={{tintColor: 'white', height: 100, width: 100}}
+              source={require('../../../assets/flaticons/food.png')}
+            />
+            <Text style={{fontSize: 15, color: 'white', marginTop: 5}}>
+              My List
+            </Text>
+          </View>
+          <View style={{alignItems: 'center', justifyContent: 'space-between'}}>
+            <Image
+              style={{tintColor: 'white', height: 100, width: 100}}
+              source={require('../../../assets/flaticons/three-stars.png')}
+            />
+
+            <Text style={{fontSize: 15, color: 'white', marginTop: 5}}>
+              Share
+            </Text>
+          </View>
+        </View>
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+            marginHorizontal: '10%',
+            padding: '3%',
+          }}>
+          <View style={{alignItems: 'center'}}>
+            <Image
+              style={{tintColor: 'white', height: 100, width: 100}}
+              source={require('../../../assets/flaticons/heart.png')}
+            />
+            <Text style={{fontSize: 15, color: 'white', marginTop: 5}}>
+              My List
+            </Text>
+          </View>     
+          <View style={{alignItems: 'center', justifyContent: 'space-between'}}>
+            <Image
+              style={{height: 100, width: 100}}
+              source={require('../../../assets/default.png')}
+            />
+
+            <Text style={{fontSize: 15, color: 'white', marginTop: 5}}>
+              Share
+            </Text>
+          </View>
         </View>
       </View>
       {/* </ImageBackground> */}

@@ -25,7 +25,10 @@ const CostumDrawer = props => {
     <View Style={{flex: 1, backgroundColor: 'white'}}>
       <View style={{paddingVertical: '15%'}}>
         <View style={[styles.DrawerItem]}>
-          <TouchableOpacity onPress={() => navigation.reset({index:0,routes:[{name:'home'}]})}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.reset({index: 0, routes: [{name: 'home'}]})
+            }>
             <View
               style={{
                 flexDirection: 'row',

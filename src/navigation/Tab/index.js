@@ -10,7 +10,7 @@ import {
   heightPercent as hp,
   widthPrecent as wp,
 } from '../../components/Responsive';
-
+import {FloatingAction} from 'react-native-floating-action';
 import Donate from '../../components/Donate';
 import FloatingButton from '../../components/floatactionbutton';
 const Tab = createMaterialTopTabNavigator();
@@ -32,7 +32,6 @@ function MyTabs() {
         }}>
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Brand connect" component={Brandconnect} />
-        
         <Tab.Screen name="Featured" component={Featured} />
         <Tab.Screen name="Favorites" component={Favorites} />
       </Tab.Navigator>

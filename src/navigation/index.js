@@ -5,7 +5,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import Forgot from '../screens/Auth/Forget';
 import Signup from '../screens/Auth/Signup';
 import MyDrawer from './drawer/index';
-import Donate from '../components/Donate';
+
+
 const Stack = createStackNavigator();
 function MyStack() {
   return (
@@ -16,6 +17,7 @@ function MyStack() {
         <Stack.Screen name="forgot" component={Forgot} options={{ headerShown: false }} />
         <Stack.Screen name="signup" component={Signup} options={{ headerShown: false }} />
         <Stack.Screen name="Home" component={MyDrawer} options={{ headerShown: false }} />
+      
      
       </Stack.Navigator>
     </NavigationContainer>

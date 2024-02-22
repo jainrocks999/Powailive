@@ -5,8 +5,9 @@ import {
   FlatList,
   Image,
   StyleSheet,
+  Modal,
 } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
 import Header from '../../../components/Header/index';
 import {SliderBox} from 'react-native-image-slider-box';
 import {
@@ -16,6 +17,7 @@ import {
 import {SafeAreaView} from 'react-native-safe-area-context';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
+import MyModal from '../../../components/Modal';
 
 const images = [
   require('../../../assets/sliderimg/img1.jpg'),
@@ -39,7 +41,6 @@ const Img = [
   },
   {
     id: '3',
-
     image: require('../../../assets/sliderimg/img3.jpg'),
     title: 'Best practice when you suspect to have Covid-19',
   },
@@ -64,10 +65,16 @@ const Img = [
     title: 'Best practice when you suspect to have Covid-19',
   },
 ];
+
 const Home = () => {
+  const [visible, setvisible] = useState(false);
   const navigation = useNavigation();
+  const handleModal = value => {
+    setvisible(value);
+  };
   return (
     <SafeAreaView style={{flex: 1, backgroundColor: 'black'}}>
+      <MyModal onPress={handleModal} visible={visible} />
       <ScrollView style={styles.scrollView}>
         <View>
           <SliderBox images={images} dotColor="red" inactiveDotColor="grey" />
@@ -127,8 +134,10 @@ const Home = () => {
           keyExtractor={item => item.id}
           renderItem={({item}) => (
             <View style={styles.imageContainer}>
-              <Image source={item.image} style={styles.image} />
-              <Text style={styles.text}>{item.title}</Text>
+              <TouchableOpacity onPress={() => setvisible(true)}>
+                <Image source={item.image} style={styles.image} />
+              </TouchableOpacity>
+              {/* <Text style={styles.text}>{item.title}</Text> */}
             </View>
           )}
         />

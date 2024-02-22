@@ -11,7 +11,6 @@ const FloatingButton = () => {
   const [icon_1] = useState(new Animated.Value(40));
   const [icon_2] = useState(new Animated.Value(40));
   const [icon_3] = useState(new Animated.Value(40));
-
   const [pop, setPop] = useState(false);
 
   const popIn = () => {
