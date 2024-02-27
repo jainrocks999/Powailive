@@ -16,14 +16,17 @@ import {
   heightPercent as hp,
   widthPrecent as wp,
 } from '../../components/Responsive';
-import {useDispatch, useSelector} from 'react-redux';
+import {  useSelector,useDispatch } from 'react-redux';
 const Login = () => {
-  const dispatch = useDispatch();
+  const userdara=useSelector(state=>state.auth.userdetails)
+  const dispatch=useDispatch()
+  console.log(userdara);
   const navigation = useNavigation();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-  const isLoggedIn = useSelector(state => state.user.token !== null);
+
   showAlert = viewId => Alert.alert('Alert', 'Button pressed ' + viewId);
+
   return (
     <View style={{flex: 1, backgroundColor: 'black'}}>
       <ImageBackground
@@ -71,7 +74,11 @@ const Login = () => {
             <TouchableOpacity
               style={[styles.buttonContainer, styles.loginButton]}
               onPress={() => {
-                navigation.navigate('Home');
+                // navigation.navigate('Home');
+                dispatch({
+                  type:'auth/loginRequest'
+                })
+                
               }}>
               <Text style={styles.loginText}>LOGIN</Text>
             </TouchableOpacity>
