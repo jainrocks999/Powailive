@@ -1,173 +1,135 @@
-import {StyleSheet, Text, Image, View, ImageBackground} from 'react-native';
+import {StyleSheet, Text, Image, View,ScrollView, TouchableOpacity} from 'react-native';
 import React from 'react';
 import {
   heightPercent as hp,
   widthPrecent as wp,
 } from '../../../components/Responsive';
-import {ScrollView} from 'react-native-gesture-handler';
+
+import {useNavigation} from '@react-navigation/native';
 
 const Brandconnect = () => {
+  const navigation = useNavigation();
   return (
-    <ScrollView
-      contentContainerStyle={{
-        flex: 1,
-        backgroundColor: 'black',
-        paddingVertical: 20,
-      }}>
-      {/* <ImageBackground
-        source={require('../../../assets/splash_bg.jpg')}
-        style={{width: '100%', height: '100%',}}> */}
+    <ScrollView contentContainerStyle={{ backgroundColor: 'black', flexGrow: 1 }}>
+    <View style={{ width: wp(35), height: hp(17), alignSelf: 'center', marginTop: 30 }}>
+      <Image source={require('../../../assets/default.png')} style={{ width: '100%', height: '100%' }} />
+    </View>
+    <View style={{ alignItems: 'center', marginTop: 15, marginBottom: '35%' }}>
+      <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'red' }}> Nearby </Text>
+      <Text style={{ fontSize: 18, fontWeight: '300', color: 'white' }}> List of all nearby stores </Text>
+    </View>
+  
       <View
         style={{
-          width: '35%',
-          height: '20%',
-          alignSelf: 'center',
-          marginTop: 20,
-        }}>
-        <ImageBackground
-          source={require('../../../assets/default.png')}
-          style={{width: '100%', height: '100%'}}></ImageBackground>
-      </View>
-      <View
-        style={{
-          alignItems: 'center',
-          marginTop: 10,
-        }}>
-        <Text style={{fontSize: 20, fontWeight: 'bold', color: 'red'}}>
-          {' '}
-          Nearby
-        </Text>
-        <Text style={{fontSize: 18, fontWeight: '300', color: 'white'}}>
-          {' '}
-          List of all nearby stores
-        </Text>
-      </View>
-      <View
-        style={{
-          height: hp(45),
-          width: '90%',
+          height: hp(50),
+          width: wp(90),
           justifyContent: 'center',
           alignSelf: 'center',
-          marginVertical: '20%',
           backgroundColor: '#2b2b2b',
           borderRadius: 30,
         }}>
-        {/* <View
-          style={{
-            flexDirection: 'row',
-            marginTop: hp(4),
-            marginHorizontal: wp(14),
-            justifyContent: 'space-between',
-          }}>
-          <Image
-            style={{tintColor: 'white', height: hp(8), width: wp(20)}}
-            source={require('../../../assets/flaticons/food.png')}></Image>
-          <Image
-            style={{tintColor: 'white', height: hp(8), width: wp(25)}}
-            source={require('../../../assets/flaticons/three-stars.png')}></Image>
-        </View> */}
-        {/* <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            marginTop: 10,
-            marginHorizontal: wp(10),
-          }}>
-          <Text style={{fontSize: 20, fontWeight: '400', color: 'white'}}>
-            Tiffin Service
-          </Text>
-          <Text style={{fontSize: 20, fontWeight: '400', color: 'white'}}>
-            Medical Store
-          </Text>
-        </View> */}
-        {/* <View
-          style={{
-            flexDirection: 'row',
-            marginTop: hp(8),
-            marginHorizontal: wp(14),
-            justifyContent: 'space-between',
-          }}>
-          <Image
-            style={{
-              tintColor: 'white',
-              height: hp(12),
-              width: wp(17),        
-            }}
-            source={require('../../../assets/flaticons/heart.png')}></Image>
-          <Image
-            style={{height: hp(12), width: wp(25), marginHorizontal: wp(-5)}}
-            source={require('../../../assets/default.png')}></Image>
-        </View> */}
-        {/* <View
-          style={{
-            flexDirection:'row',
-            justifyContent:'space-between',
-            marginTop: 10,
-            marginHorizontal: wp(10),
-          }}>
-          <Text style={{fontSize: 20, fontWeight: '400', color: 'white'}}>
-            Grocery Shop
-          </Text>
-          <Text style={{fontSize: 20, fontWeight: '400', color: 'white'}}>
-            Restaurant
-          </Text>
-        </View> */}
         <View
           style={{
             flexDirection: 'row',
-            justifyContent: 'space-around',
+            justifyContent: 'space-between',
             marginHorizontal: '10%',
-            padding: '3%',
+            padding: '5%',
           }}>
-          <View style={{alignItems: 'center'}}>
-            <Image
-              style={{tintColor: 'white', height: 100, width: 100}}
-              source={require('../../../assets/flaticons/food.png')}
-            />
-            <Text style={{fontSize: 15, color: 'white', marginTop: 5}}>
-              My List
-            </Text>
-          </View>
-          <View style={{alignItems: 'center', justifyContent: 'space-between'}}>
-            <Image
-              style={{tintColor: 'white', height: 100, width: 100}}
-              source={require('../../../assets/flaticons/three-stars.png')}
-            />
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('tiffin');
+            }}>
+            <View style={{alignItems: 'center'}}>
+              <Image
+                style={{tintColor: 'white', height: 100, width: 100}}
+                source={require('../../../assets/flaticons/food.png')}
+              />
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: '700',
+                  color: 'white',
+                  marginTop: 5,
+                }}>
+                Tiffin Service
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('medical');
+            }}>
+            <View
+              style={{alignItems: 'center', justifyContent: 'space-between'}}>
+              <Image
+                style={{tintColor: 'white', height: 100, width: 100}}
+                source={require('../../../assets/flaticons/three-stars.png')}
+              />
 
-            <Text style={{fontSize: 15, color: 'white', marginTop: 5}}>
-              Share
-            </Text>
-          </View>
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: '700',
+                  color: 'white',
+                  marginTop: 5,
+                }}>
+                Medical Store
+              </Text>
+            </View>
+          </TouchableOpacity>
         </View>
         <View
           style={{
             flexDirection: 'row',
-            justifyContent: 'space-around',
+            justifyContent: 'space-between',
             marginHorizontal: '10%',
-            padding: '3%',
+            padding: '5%',
           }}>
-          <View style={{alignItems: 'center'}}>
-            <Image
-              style={{tintColor: 'white', height: 100, width: 100}}
-              source={require('../../../assets/flaticons/heart.png')}
-            />
-            <Text style={{fontSize: 15, color: 'white', marginTop: 5}}>
-              My List
-            </Text>
-          </View>     
-          <View style={{alignItems: 'center', justifyContent: 'space-between'}}>
-            <Image
-              style={{height: 100, width: 100}}
-              source={require('../../../assets/default.png')}
-            />
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('grocery');
+            }}>
+            <View style={{alignItems: 'center'}}>
+              <Image
+                style={{tintColor: 'white', height: 100, width: 100}}
+                source={require('../../../assets/flaticons/heart.png')}
+              />
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: '700',
+                  color: 'white',
+                  marginTop: 5,
+                }}>
+                Grocery Shop
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('restaurant');
+            }}>
+            <View
+              style={{alignItems: 'center', justifyContent: 'space-between'}}>
+              <Image
+                style={{height: 100, width: 100}}
+                source={require('../../../assets/default.png')}
+              />
 
-            <Text style={{fontSize: 15, color: 'white', marginTop: 5}}>
-              Share
-            </Text>
-          </View>
+              <Text
+                style={{
+                  fontSize: 15,
+                  fontWeight: '700',
+                  color: 'white',
+                  marginTop: 5,
+                }}>
+                Restaurant
+              </Text>
+            </View>
+          </TouchableOpacity>
         </View>
       </View>
-      {/* </ImageBackground> */}
+ 
     </ScrollView>
   );
 };

@@ -272,33 +272,35 @@ const CostumDrawer = props => {
             alignSelf: 'center',
             borderBottomColor: 'black',
           }}></View>
-        <View style={[styles.DrawerItem]}>
-          <View
-            style={{
-              flexDirection: 'row',
-              height: '100%',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-              width: '63%',
-            }}>
-            <Image
+        <TouchableOpacity onPress={() => navigation.navigate('profile')}>
+          <View style={[styles.DrawerItem]}>
+            <View
               style={{
-                tintColor: 'black',
-                height: hp(3.5),
-                width: hp(3.5),
-                marginLeft: '43%',
-              }}
-              source={require('../../assets/flaticons/Profile.png')}></Image>
-            <Text
-              style={{
-                fontSize: wp(5),
-
-                color: 'black',
+                flexDirection: 'row',
+                height: '100%',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                width: '63%',
               }}>
-              Profile
-            </Text>
+              <Image
+                style={{
+                  tintColor: 'black',
+                  height: hp(3.5),
+                  width: hp(3.5),
+                  marginLeft: '43%',
+                }}
+                source={require('../../assets/flaticons/Profile.png')}></Image>
+              <Text
+                style={{
+                  fontSize: wp(5),
+
+                  color: 'black',
+                }}>
+                Profile
+              </Text>
+            </View>
           </View>
-        </View>
+        </TouchableOpacity>
         <View
           style={{
             borderWidth: 0.7,
@@ -306,6 +308,7 @@ const CostumDrawer = props => {
             alignSelf: 'center',
             borderBottomColor: 'black',
           }}></View>
+          <TouchableOpacity onPress={() => navigation.navigate('contact')}>
         <View style={[styles.DrawerItem]}>
           <View
             style={{
@@ -314,7 +317,6 @@ const CostumDrawer = props => {
               alignItems: 'center',
               justifyContent: 'space-between',
               width: '71%',
-              marginBottom: '35%',
             }}>
             <Image
               style={{
@@ -329,17 +331,23 @@ const CostumDrawer = props => {
                 fontSize: wp(5),
                 margin: '6%',
                 color: 'black',
+                
               }}>
               Contact Us
             </Text>
           </View>
-          <View
-            style={{
-              borderWidth: 0.7,
-              width: '80%',
-              alignSelf: 'center',
-              borderBottomColor: 'black',
-            }}></View>
+        </View>
+        </TouchableOpacity>
+        <View
+          style={{
+            borderWidth: 0.7,
+            width: '80%',
+            alignSelf: 'center',
+            borderBottomColor: 'black',
+            marginTop:'40%'
+            
+          }}></View>
+        <View style={[styles.DrawerItem]}>
           <View
             style={{
               flexDirection: 'row',

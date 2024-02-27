@@ -18,6 +18,7 @@ import {SafeAreaView} from 'react-native-safe-area-context';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import {useNavigation} from '@react-navigation/native';
 import MyModal from '../../../components/Modal';
+import Animated, { FadeIn, SlideInRight } from 'react-native-reanimated';
 
 const images = [
   require('../../../assets/sliderimg/img1.jpg'),
@@ -79,6 +80,7 @@ const Home = () => {
         <View>
           <SliderBox images={images} dotColor="red" inactiveDotColor="grey" />
         </View>
+        <Animated.View entering={FadeIn} >
         <TouchableOpacity
           onPress={() => {
             navigation.navigate('Donate');
@@ -111,9 +113,11 @@ const Home = () => {
             </View>
           </View>
         </TouchableOpacity>
+        </Animated.View>
         <View style={styles.FeatureContainer}>
           <Text style={styles.Featurecategory}>Featured</Text>
         </View>
+        <Animated.View entering={SlideInRight} style={{ marginHorizontal:10}}>
         <FlatList
           horizontal={true}
           data={Img}
@@ -125,36 +129,48 @@ const Home = () => {
             </View>
           )}
         />
+            </Animated.View>
+        <View style={{backgroundColor: '#2b2b2b'}}>
         <View style={styles.FeatureContainer}>
           <Text style={styles.Featurecategory}>Deals</Text>
         </View>
+        <Animated.View entering={SlideInRight} style={{ marginHorizontal:10}}>
         <FlatList
           horizontal={true}
           data={Img}
-          keyExtractor={item => item.id}
-          renderItem={({item}) => (
+          keyExtractor={item =>item.id}
+          renderItem={({item}) =>(
             <View style={styles.imageContainer}>
               <TouchableOpacity onPress={() => setvisible(true)}>
-                <Image source={item.image} style={styles.image} />
+                <Image source={item.image} style={styles.imagee} />
               </TouchableOpacity>
               {/* <Text style={styles.text}>{item.title}</Text> */}
             </View>
           )}
         />
+        </Animated.View>
+         </View>
+     
         <View style={styles.FeatureContainer}>
           <Text style={styles.Featurecategory}>Favorites</Text>
         </View>
+        <Animated.View entering={SlideInRight} style={{ marginHorizontal:10}}>
         <FlatList
           horizontal={true}
           data={Img}
           keyExtractor={item => item.id}
           renderItem={({item}) => (
             <View style={styles.imageContainer}>
+              <TouchableOpacity   onPress={() => {
+            navigation.navigate('deals');
+          }}>
               <Image source={item.image} style={styles.image} />
               <Text style={styles.text}>{item.title}</Text>
+              </TouchableOpacity>
             </View>
           )}
         />
+  </Animated.View>
       </ScrollView>
     </SafeAreaView>
   );
@@ -198,19 +214,22 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     padding: 10,
-    paddingHorizontal: 5,
-    alignItems: 'stretch',
   },
   image: {
     width: hp(30),
     height: hp(15),
-
     resizeMode: 'stretch',
+  },
+  imagee: {
+    width: wp(35),
+    height: hp(15),
+    resizeMode: 'stretch',
+    marginBottom:10
   },
   text: {
     width: wp(50),
     marginTop: 10,
-    marginLeft: 20,
+    marginLeft: 5,
     color: 'white',
     fontSize: 15,
   },

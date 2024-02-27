@@ -50,7 +50,6 @@ const FloatingButton = () => {
       useNativeDriver: false,
     }).start();
   }
-
   return(
     <View style={{
     }}>
@@ -64,24 +63,22 @@ const FloatingButton = () => {
         <Image  style={{ height: hp(5), width:hp(5)}}source={require('../assets/floaticon/Instagram.png')}/> 
         </TouchableOpacity>
       </Animated.View>
-      <Animated.View style={[styles.circle2, { bottom: icon_3,right:40}]}>
+      <Animated.View style={[styles.circle2, { bottom: icon_3,}]}>
         <TouchableOpacity>
         <Image  style={{ height: hp(7), width:hp(7)}}source={require('../assets/floaticon/Youtube.png')}/>
         </TouchableOpacity>
       </Animated.View>
       <TouchableOpacity
-        style={styles.circle}
-        onPress={() => {
-          pop === false ? popIn() : popOut();
-        }}
-      >
-        <AntDesign name="up" size={30} color='black' />
-      </TouchableOpacity>
+     style={styles.circle}
+    onPress={() => {
+    pop === false ? popIn() : popOut();
+  }}
+>
+  <AntDesign name={pop ? "down" : "up"} size={25} color='black'  />
+</TouchableOpacity>
     </View>
   )
-
 }
-
 export default FloatingButton;
 
 const styles = StyleSheet.create({
@@ -97,9 +94,8 @@ const styles = StyleSheet.create({
      alignItems: 'center',
   },
   circle2: {
-
      width: hp(6),
-     height: hp(10.4),
+     height: hp(10.8),
      position: 'absolute',
      bottom: 60,
      right: 40,

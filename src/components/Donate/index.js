@@ -1,12 +1,12 @@
 import React from 'react';
-import {StyleSheet, View, Image, Text} from 'react-native';
+import {StyleSheet, View, Image, Text, ScrollView} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
 import Header from '../Header';
 import {
   heightPercent as hp,
   widthPrecent as wp,
 } from '../../components/Responsive';
-
+import Animated, {  SlideInDown, SlideInUp } from 'react-native-reanimated';
 const Donate = () => {
   const data = [
     {imageUrl: require('../../assets/sliderimg/img1.jpg')},
@@ -23,14 +23,16 @@ const Donate = () => {
   );
 
   return (
-    <View style={{flex: 1, backgroundColor: 'black'}}>
+    <View style={{flex: 1}}>
       <Header />
+      <Animated.View entering={SlideInDown} >
+      <ScrollView style={{ backgroundColor: 'black'}}>
       <View style={{alignSelf: 'center', marginVertical: '10%'}}>
         <Image
           style={{tintColor: 'white', height: hp(15), width: hp(15)}}
           source={require('../../assets/flaticons/box.png')}></Image>
       </View>
-      <View style={{alignSelf: 'center', height: '27%'}}>
+      <View style={{alignSelf: 'center', height: '30%'}}>
         <Carousel
           layout={'default'}
           data={data}
@@ -41,22 +43,20 @@ const Donate = () => {
       </View>
       <View
         style={{
-          flexDirection: 'row',
-          alignItems: 'center',
-          paddingHorizontal: 10,
-          height: hp(5),
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          paddingHorizontal: 30,
+          height: hp(50),
         }}>
         <Text
           style={{
             fontSize: wp(5),
             fontWeight: 'bold',
             color: 'white',
-            paddingHorizontal: 10,
+        
           }}>
           Cause 13
         </Text>
-      </View>
-      <View style={{paddingHorizontal: 20}}>
         <Text style={{fontSize: wp(4), color: 'white', marginTop: 10}}>
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -65,6 +65,7 @@ const Donate = () => {
           five centuries.
         </Text>
       </View>
+      </ScrollView>
       <View
         style={{
           height: hp(6),
@@ -93,6 +94,7 @@ const Donate = () => {
           </Text>
         </View>
       </View>
+      </Animated.View>
     </View>
   );
 };

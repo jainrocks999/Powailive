@@ -16,13 +16,14 @@ import {
   heightPercent as hp,
   widthPrecent as wp,
 } from '../../components/Responsive';
+import {useDispatch, useSelector} from 'react-redux';
 const Login = () => {
+  const dispatch = useDispatch();
   const navigation = useNavigation();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
-
+  const isLoggedIn = useSelector(state => state.user.token !== null);
   showAlert = viewId => Alert.alert('Alert', 'Button pressed ' + viewId);
-
   return (
     <View style={{flex: 1, backgroundColor: 'black'}}>
       <ImageBackground

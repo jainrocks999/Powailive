@@ -5,13 +5,7 @@ import Brandconnect from '../../screens/Main/Brandconnect/index';
 import Featured from '../../screens/Main/Featured/index';
 import Home from '../../screens/Main/Home/index';
 import Favorites from '../../screens/Main/Favorites';
-import floatdata from '../../components/floatdata';
-import {
-  heightPercent as hp,
-  widthPrecent as wp,
-} from '../../components/Responsive';
-import {FloatingAction} from 'react-native-floating-action';
-import Donate from '../../components/Donate';
+
 import FloatingButton from '../../components/floatactionbutton';
 const Tab = createMaterialTopTabNavigator();
 function MyTabs() {
@@ -35,7 +29,7 @@ function MyTabs() {
         <Tab.Screen name="Featured" component={Featured} />
         <Tab.Screen name="Favorites" component={Favorites} />
       </Tab.Navigator>
-      <FloatingButton/>
+      <FloatingButton />
     </View>
   );
 }
