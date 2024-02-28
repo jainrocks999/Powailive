@@ -35,10 +35,6 @@ const MyDrawer = () => {
       <Drawer.Screen name="Covid" component={Covid19}/>
       <Drawer.Screen name="profile" component={Profile}/>
       <Drawer.Screen name="contact" component={Contact}/>
-      
-     
-    
-
     </Drawer.Navigator>
     <FloatingButton/>
     </View>

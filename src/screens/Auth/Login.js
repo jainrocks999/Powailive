@@ -16,11 +16,11 @@ import {
   heightPercent as hp,
   widthPrecent as wp,
 } from '../../components/Responsive';
-import {  useSelector,useDispatch } from 'react-redux';
+
 const Login = () => {
-  const userdara=useSelector(state=>state.auth.userdetails)
-  const dispatch=useDispatch()
-  console.log(userdara);
+
+
+
   const navigation = useNavigation();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
@@ -74,10 +74,10 @@ const Login = () => {
             <TouchableOpacity
               style={[styles.buttonContainer, styles.loginButton]}
               onPress={() => {
-                // navigation.navigate('Home');
-                dispatch({
-                  type:'auth/loginRequest'
-                })
+                navigation.navigate('Home');
+                // dispatch({
+                //   type:'auth/loginRequest'
+                // })
                 
               }}>
               <Text style={styles.loginText}>LOGIN</Text>
